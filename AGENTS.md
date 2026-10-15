@@ -82,11 +82,13 @@ src/
 │  │  ├─ hooks.ts          # useActiveOrders
 │  │  └─ components/
 │  └─ auth/                # AuthProvider, sign-in, protected route
-└─ shared/
-   ├─ firebase/            # app.ts, converters.ts, refs.ts, useLiveQuery.ts, hooks.ts
-   ├─ i18n/                # en.ts, sv.ts, locale.ts, I18nContext.ts, I18nProvider.tsx, useStrings.ts
-   ├─ schemas/             # Zod: drink.ts, order.ts, eventConfig.ts, staff.ts
-   └─ ui/                  # shadcn/ui components
+├─ shared/
+│  ├─ firebase/            # app.ts, converters.ts, refs.ts, useLiveQuery.ts, hooks.ts
+│  ├─ i18n/                # en.ts, sv.ts, locale.ts, I18nContext.ts, I18nProvider.tsx, useStrings.ts
+│  ├─ schemas/             # Zod: drink.ts, order.ts, eventConfig.ts, staff.ts
+│  └─ ui/                  # shadcn/ui components
+└─ test/
+   └─ setup.ts             # Vitest setup: jest-dom matchers and cleanup
 tests/
 ├─ rules/                  # security rules tests, run against the emulator
 └─ e2e/                    # Playwright
