@@ -23,7 +23,7 @@ An empty app with tooling, CI, styling, strings and routes in place, before any 
 | --- | --- | --- | --- | --- |
 | 0.1 | Project setup | `chore/project-setup` | Vite React + TS template, strict TypeScript, `@/` alias, an empty start page, MIT license, AGENTS.md, CLAUDE.md, docs/conventions.md, docs/data-model.md, docs/strings.md and this roadmap in docs/roadmap.md | Done |
 | 0.2 | Lint and format | `chore/lint-and-format` | ESLint flat config with `typescript-eslint` and `eslint-plugin-react-hooks`, Prettier, the `lint`, `format` and `typecheck` scripts | Done |
-| 0.3 | React Compiler | `chore/react-compiler` | React Compiler enabled in the Vite config | Not started |
+| 0.3 | React Compiler | `chore/react-compiler` | React Compiler enabled in the Vite config | Done |
 | 0.4 | Unit tests | `test/vitest-setup` | Vitest, React Testing Library and jsdom, `npm test`, one smoke test | Not started |
 | 0.5 | CI | `ci/checks` | GitHub Actions running lint, typecheck, tests and build on every pull request. Branch protection on `main`. | Not started |
 | 0.6 | Styling | `chore/tailwind-and-shadcn` | Tailwind CSS with theme tokens in CSS variables, shadcn/ui set up with Button | Not started |
