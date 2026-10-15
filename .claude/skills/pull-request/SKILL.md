@@ -18,6 +18,7 @@ The Git rules live in `docs/conventions.md`, in the section "Git, pull requests 
 - Find the roadmap step whose Branch column matches the current branch. If an earlier step is not Done, mention it in the report.
 - Run `git status` and `git log main..HEAD --oneline`. If there is nothing to commit and no commits ahead of main, stop and say so.
 - Run `gh auth status`. If it fails, stop and ask the developer to log in.
+- Run `git diff main -- package.json`. List every added or changed dependency under `## Notes`. If a dependency is not part of the step's plan, stop and ask.
 - Run the checks below. If anything fails, stop and report the output. Never weaken or skip a test to continue.
 
 ### Checks

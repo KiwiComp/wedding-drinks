@@ -98,4 +98,5 @@ These ideas are outside the current plan. Do not start on them without a decisio
 
 Record decisions that change this roadmap here, newest first, with the step number and a short reason.
 
+- **0.6:** The `next-step` skill checks `git status`, the `package.json` diff and the generated imports after a code generator runs, and the `pull-request` skill lists every new dependency and stops on an unplanned one, because `shadcn add` installed an unplanned package.
 - **0.6:** shadcn files in `src/shared/ui/` keep shadcn's file names and exports, such as `button.tsx` with `buttonVariants`, because generated components import each other by those paths. `docs/conventions.md` and the ESLint config have an exception for them.
