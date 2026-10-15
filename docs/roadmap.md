@@ -26,7 +26,7 @@ An empty app with tooling, CI, styling, strings and routes in place, before any 
 | 0.3 | React Compiler | `chore/react-compiler` | React Compiler enabled in the Vite config | Done |
 | 0.4 | Unit tests | `test/vitest-setup` | Vitest, React Testing Library and jsdom, `npm test`, one smoke test | Done |
 | 0.5 | CI | `ci/checks` | GitHub Actions running lint, typecheck, tests and build on every pull request. Branch protection on `main`. | Done |
-| 0.6 | Styling | `chore/tailwind-and-shadcn` | Tailwind CSS with theme tokens in CSS variables, shadcn/ui set up with Button | Not started |
+| 0.6 | Styling | `chore/tailwind-and-shadcn` | Tailwind CSS with theme tokens in CSS variables, shadcn/ui set up with Button | Done |
 | 0.7 | Strings | `feat/i18n` | `en.ts` and `sv.ts` with the `common` strings, `locale.ts`, `I18nContext`, `I18nProvider`, `useStrings`, tests | Not started |
 | 0.8 | Router shell | `feat/router-shell` | `createBrowserRouter` with placeholder pages for `/table/:tableId`, `/bar` (lazy), `/login` and 404, plus an `errorElement` per route | Not started |
 | 0.9 | Language picker | `feat/language-picker` | Language picker in the layout, the choice saved, `<html lang>` following the locale | Not started |
@@ -97,3 +97,5 @@ These ideas are outside the current plan. Do not start on them without a decisio
 ## Decisions
 
 Record decisions that change this roadmap here, newest first, with the step number and a short reason.
+
+- **0.6:** shadcn files in `src/shared/ui/` keep shadcn's file names and exports, such as `button.tsx` with `buttonVariants`, because generated components import each other by those paths. `docs/conventions.md` and the ESLint config have an exception for them.

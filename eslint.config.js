@@ -33,5 +33,13 @@ export default defineConfig([
       ],
     },
   },
+  {
+    // shadcn exports variant helpers such as buttonVariants next to its components.
+    // The only cost is a full reload in dev when one of these files changes.
+    files: ['src/shared/ui/**/*.{ts,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
   prettier,
 ])
