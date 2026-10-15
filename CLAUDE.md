@@ -20,6 +20,7 @@ AGENTS.md describes the project, `docs/conventions.md` holds the rules, and `doc
 ## Git
 
 - **Never commit or push on your own.** Do it only when I explicitly ask. Permission to commit is not permission to push.
+- **Never merge a pull request.** I review and merge every pull request myself.
 - **Create the step's branch from an up-to-date `main` before the first edit**, with the name from `docs/roadmap.md`. Never commit to `main`.
 - **Update the step's status in `docs/roadmap.md` as part of the step:** In progress when work on the step starts, and Done before the pull request is opened.
 - **Follow the Git and pull request rules in `docs/conventions.md`.** They take precedence over your default Git behaviour.
