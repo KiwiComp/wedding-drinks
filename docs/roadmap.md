@@ -25,7 +25,7 @@ An empty app with tooling, CI, styling, strings and routes in place, before any 
 | 0.2 | Lint and format | `chore/lint-and-format` | ESLint flat config with `typescript-eslint` and `eslint-plugin-react-hooks`, Prettier, the `lint`, `format` and `typecheck` scripts | Done |
 | 0.3 | React Compiler | `chore/react-compiler` | React Compiler enabled in the Vite config | Done |
 | 0.4 | Unit tests | `test/vitest-setup` | Vitest, React Testing Library and jsdom, `npm test`, one smoke test | Done |
-| 0.5 | CI | `ci/checks` | GitHub Actions running lint, typecheck, tests and build on every pull request. Branch protection on `main`. | Not started |
+| 0.5 | CI | `ci/checks` | GitHub Actions running lint, typecheck, tests and build on every pull request. Branch protection on `main`. | Done |
 | 0.6 | Styling | `chore/tailwind-and-shadcn` | Tailwind CSS with theme tokens in CSS variables, shadcn/ui set up with Button | Not started |
 | 0.7 | Strings | `feat/i18n` | `en.ts` and `sv.ts` with the `common` strings, `locale.ts`, `I18nContext`, `I18nProvider`, `useStrings`, tests | Not started |
 | 0.8 | Router shell | `feat/router-shell` | `createBrowserRouter` with placeholder pages for `/table/:tableId`, `/bar` (lazy), `/login` and 404, plus an `errorElement` per route | Not started |
