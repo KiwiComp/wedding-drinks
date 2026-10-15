@@ -14,6 +14,7 @@ These rules apply to all work in this repo. AGENTS.md describes the project, and
 
 - **Named exports only.** The exception is config files that require a default export, such as `vite.config.ts`.
 - **One component per file**, named in `PascalCase.tsx`. Hooks are named `useXxx` and may share a feature's `hooks.ts`.
+- **shadcn/ui files keep shadcn's names and exports.** Files that the shadcn CLI generates in `src/shared/ui/`, such as `button.tsx` with `buttonVariants`, are an exception to the two rules above, because generated components import each other by those paths.
 - **Unit tests sit next to the file they test**, as `cart.test.ts` next to `cart.ts`.
 - **Use `@/` imports between folders.** Relative imports are only for files in the same folder.
 - **A comment must say something the code cannot:** why a value is what it is, a non-obvious constraint, or a link to a spec.

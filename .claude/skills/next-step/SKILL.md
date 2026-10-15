@@ -39,6 +39,7 @@ Then create the branch named in the roadmap table from `main`: `git checkout -b 
 ## After approval
 
 - Set the step's status to `In progress` in `docs/roadmap.md`, in the step's branch.
+- After running a code generator such as `shadcn add`, check `git status` and the `package.json` diff, and review the generated imports, before continuing.
 - Implement the plan. Verify with the checks from the definition of done in AGENTS.md: `npm run lint`, `npm run typecheck`, `npm test` and `npm run build`, plus `npm run test:rules` when the step touches `firestore.rules`, a schema, an `api.ts` file or a query. Skip a script that does not exist yet in the roadmap, and say so.
 - When the step is complete and verified, set its status to `Done` in the same branch.
 - Do not commit. Finish with a short summary: what changed, each check with its result, and anything that could not be verified. Remind the developer that /pull-request commits and opens the pull request.
