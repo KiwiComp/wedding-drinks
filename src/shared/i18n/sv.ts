@@ -11,4 +11,7 @@ export const sv: Strings = {
     languageLabel: 'Språk',
     table: (table: number) => `Bord ${table}`,
   },
+  notFound: {
+    title: 'Sidan finns inte',
+  },
 }
