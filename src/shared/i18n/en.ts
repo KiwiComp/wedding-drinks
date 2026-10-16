@@ -9,6 +9,9 @@ export const en = {
     languageLabel: 'Language',
     table: (table: number) => `Table ${table}`,
   },
+  notFound: {
+    title: 'Page not found',
+  },
 }
 
 export type Strings = typeof en

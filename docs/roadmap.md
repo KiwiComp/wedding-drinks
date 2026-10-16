@@ -28,7 +28,7 @@ An empty app with tooling, CI, styling, strings and routes in place, before any 
 | 0.5 | CI | `ci/checks` | GitHub Actions running lint, typecheck, tests and build on every pull request. Branch protection on `main`. | Done |
 | 0.6 | Styling | `chore/tailwind-and-shadcn` | Tailwind CSS with theme tokens in CSS variables, shadcn/ui set up with Button | Done |
 | 0.7 | Strings | `feat/i18n` | `en.ts` and `sv.ts` with the `common` strings, `locale.ts`, `I18nContext`, `I18nProvider`, `useStrings`, tests | Done |
-| 0.8 | Router shell | `feat/router-shell` | `createBrowserRouter` with placeholder pages for `/table/:tableId`, `/bar` (lazy), `/login` and 404, plus an `errorElement` per route | Not started |
+| 0.8 | Router shell | `feat/router-shell` | `createBrowserRouter` with placeholder pages for `/table/:tableId`, `/bar` (lazy), `/login` and 404, plus an `errorElement` per route, the `notFound.title` string | Done |
 | 0.9 | Language picker | `feat/language-picker` | Language picker in the layout, the choice saved, `<html lang>` following the locale | Not started |
 
 ## Phase 1: Firebase foundation
@@ -43,7 +43,7 @@ Emulators, rules testing, schemas and the read layer, ending with a table route 
 | 1.4 | Schemas | `feat/schemas` | Zod schemas for drink, order, event config and staff, with tests for `parseTableId`, `canTransition` and parsing | Not started |
 | 1.5 | Read layer | `feat/read-layer` | `readConverter`, `refs.ts`, `useLiveQuery` and `useLiveDoc`, with tests for the converter | Not started |
 | 1.6 | Seed and menu rules | `feat/seed-and-menu-rules` | `scripts/seed.ts`, `npm run seed`, read rules for `drinks` and `config/event` with rules tests | Not started |
-| 1.7 | Table validation | `feat/table-validation` | `useEventConfig`, `/table/:tableId` validated with `parseTableId`, the 404 view for unknown tables, the `notFound` strings | Not started |
+| 1.7 | Table validation | `feat/table-validation` | `useEventConfig`, `/table/:tableId` validated with `parseTableId`, the 404 view for unknown tables, the `notFound.unknownTable` string | Not started |
 
 ## Phase 2: Guest view
 
@@ -98,5 +98,6 @@ These ideas are outside the current plan. Do not start on them without a decisio
 
 Record decisions that change this roadmap here, newest first, with the step number and a short reason.
 
+- **0.8:** `notFound.title` moves from 1.7 to 0.8, because the 404 page in the router shell needs a heading. `notFound.unknownTable` stays in 1.7.
 - **0.6:** The `next-step` skill checks `git status`, the `package.json` diff and the generated imports after a code generator runs, and the `pull-request` skill lists every new dependency and stops on an unplanned one, because `shadcn add` installed an unplanned package.
 - **0.6:** shadcn files in `src/shared/ui/` keep shadcn's file names and exports, such as `button.tsx` with `buttonVariants`, because generated components import each other by those paths. `docs/conventions.md` and the ESLint config have an exception for them.
