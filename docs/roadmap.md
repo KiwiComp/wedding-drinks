@@ -29,7 +29,7 @@ An empty app with tooling, CI, styling, strings and routes in place, before any 
 | 0.6 | Styling | `chore/tailwind-and-shadcn` | Tailwind CSS with theme tokens in CSS variables, shadcn/ui set up with Button | Done |
 | 0.7 | Strings | `feat/i18n` | `en.ts` and `sv.ts` with the `common` strings, `locale.ts`, `I18nContext`, `I18nProvider`, `useStrings`, tests | Done |
 | 0.8 | Router shell | `feat/router-shell` | `createBrowserRouter` with placeholder pages for `/table/:tableId`, `/bar` (lazy), `/login` and 404, plus an `errorElement` per route, the `notFound.title` string | Done |
-| 0.9 | Language picker | `feat/language-picker` | Language picker in the layout, the choice saved, `<html lang>` following the locale | Not started |
+| 0.9 | Language picker | `feat/language-picker` | Language picker in the layout, the choice saved, `<html lang>` following the locale | Done |
 
 ## Phase 1: Firebase foundation
 

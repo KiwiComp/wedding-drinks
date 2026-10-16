@@ -18,6 +18,7 @@ function Consumer() {
 describe('I18nProvider', () => {
   afterEach(() => {
     vi.restoreAllMocks()
+    localStorage.clear()
   })
 
   it('shows English by default', () => {
@@ -57,6 +58,40 @@ describe('I18nProvider', () => {
 
     expect(screen.getByText('Bord 3')).toBeInTheDocument()
     expect(screen.queryByText('Table 3')).not.toBeInTheDocument()
+  })
+
+  it('sets the html lang attribute to the locale', () => {
+    vi.spyOn(navigator, 'language', 'get').mockReturnValue('en-US')
+    render(
+      <I18nProvider>
+        <Consumer />
+      </I18nProvider>,
+    )
+
+    expect(document.documentElement).toHaveAttribute('lang', 'en')
+
+    fireEvent.click(screen.getByRole('button', { name: 'Svenska' }))
+
+    expect(document.documentElement).toHaveAttribute('lang', 'sv')
+  })
+
+  it('remembers the chosen language on the next visit', () => {
+    vi.spyOn(navigator, 'language', 'get').mockReturnValue('en-US')
+    const { unmount } = render(
+      <I18nProvider>
+        <Consumer />
+      </I18nProvider>,
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'Svenska' }))
+    unmount()
+
+    render(
+      <I18nProvider>
+        <Consumer />
+      </I18nProvider>,
+    )
+
+    expect(screen.getByText('Bord 3')).toBeInTheDocument()
   })
 
   it('throws when useI18n is used outside the provider', () => {
