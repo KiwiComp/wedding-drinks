@@ -40,7 +40,7 @@ Emulators, rules testing, schemas and the read layer, ending with a table route 
 | 1.1 | Firebase setup | `chore/firebase-init` | `firebase init` for Firestore, Hosting and Emulators, a deny-all `firestore.rules`, `npm run emulators`, `.env.example` and `.env.development` | Done |
 | 1.2 | Rules testing | `test/rules-setup` | `@firebase/rules-unit-testing`, `npm run test:rules`, a test proving that everything is denied, a rules job in CI | Done |
 | 1.3 | Firebase client | `feat/firebase-client` | `app.ts` with the emulator connection, typed environment variables in `vite-env.d.ts` | Done |
-| 1.4 | Schemas | `feat/schemas` | Zod schemas for drink, order, event config and staff, with tests for `parseTableId`, `canTransition` and parsing | Not started |
+| 1.4 | Schemas | `feat/schemas` | Zod schemas for drink, order, event config and staff, with tests for `parseTableId`, `canTransition` and parsing | Done |
 | 1.5 | Read layer | `feat/read-layer` | `readConverter`, `refs.ts`, `useLiveQuery` and `useLiveDoc`, with tests for the converter | Not started |
 | 1.6 | Seed and menu rules | `feat/seed-and-menu-rules` | `scripts/seed.ts`, `npm run seed`, read rules for `drinks` and `config/event` with rules tests | Not started |
 | 1.7 | Table validation | `feat/table-validation` | `useEventConfig`, `/table/:tableId` validated with `parseTableId`, the 404 view for unknown tables, the `notFound.unknownTable` string | Not started |
