@@ -37,7 +37,7 @@ Emulators, rules testing, schemas and the read layer, ending with a table route 
 
 | # | Step | Branch | Content | Status |
 | --- | --- | --- | --- | --- |
-| 1.1 | Firebase setup | `chore/firebase-init` | `firebase init` for Firestore, Hosting and Emulators, a deny-all `firestore.rules`, `npm run emulators`, `.env.example` and `.env.development` | Not started |
+| 1.1 | Firebase setup | `chore/firebase-init` | `firebase init` for Firestore, Hosting and Emulators, a deny-all `firestore.rules`, `npm run emulators`, `.env.example` and `.env.development` | Done |
 | 1.2 | Rules testing | `test/rules-setup` | `@firebase/rules-unit-testing`, `npm run test:rules`, a test proving that everything is denied, a rules job in CI | Not started |
 | 1.3 | Firebase client | `feat/firebase-client` | `app.ts` with the emulator connection, typed environment variables in `vite-env.d.ts` | Not started |
 | 1.4 | Schemas | `feat/schemas` | Zod schemas for drink, order, event config and staff, with tests for `parseTableId`, `canTransition` and parsing | Not started |
@@ -97,6 +97,9 @@ These ideas are outside the current plan. Do not start on them without a decisio
 ## Decisions
 
 Record decisions that change this roadmap here, newest first, with the step number and a short reason.
+
+- **1.1:** The Auth emulator is configured in `firebase.json` in 1.1 instead of 2.1, because `npm run emulators` in AGENTS.md already starts it. 2.1 only connects the client to it.
+- **1.1:** `firebase-tools` is a devDependency, so that `npm run emulators` and the rules job in CI from 1.2 use a pinned version instead of a global install.
 
 - **0.8:** `notFound.title` moves from 1.7 to 0.8, because the 404 page in the router shell needs a heading. `notFound.unknownTable` stays in 1.7.
 - **0.6:** The `next-step` skill checks `git status`, the `package.json` diff and the generated imports after a code generator runs, and the `pull-request` skill lists every new dependency and stops on an unplanned one, because `shadcn add` installed an unplanned package.

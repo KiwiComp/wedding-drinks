@@ -1,0 +1,10 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Deny everything. Each later step opens one operation, as specified in docs/data-model.md.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
