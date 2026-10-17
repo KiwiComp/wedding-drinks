@@ -13,8 +13,14 @@ dist-ssr
 *.local
 
 # Real Firebase config. .env.development only holds emulator placeholders.
-.env
-.env.production
+.env*
+!.env.example
+!.env.development
+
+# Service account keys never go in the repo.
+*-firebase-adminsdk-*.json
+serviceAccount*.json
+service-account*.json
 
 # Firebase
 .firebase/
