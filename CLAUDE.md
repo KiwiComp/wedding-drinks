@@ -32,6 +32,18 @@ AGENTS.md describes the project, `docs/conventions.md` holds the rules, and `doc
 - **Check the definition of done in AGENTS.md** before you say that a step is finished.
 - **Never report a task as done while a check fails.** Say what failed and why.
 
+## Communication with the developer
+
+These guidelines apply to every response to the developer, without exception.
+
+- **Always communicate with the developer in Swedish**, regardless of the language used in the developer's messages.
+- **Write all project content in English**, including code, comments, documentation, commit messages and other project files.
+- **Minimise cognitive load.** The developer experiences cognitive fatigue (brain fatigue). Always adapt your communication to it.
+- **Use clear, simple and straightforward Swedish.**
+- **Keep explanations short and structured.** Avoid unnecessary technical jargon and long paragraphs.
+- **Explain technical concepts in plain language** when needed.
+- **Prioritise clarity over brevity** when the two conflict.
+
 ## Communication
 
 - **Be brief** in answers, explanations, summaries and commit messages. No preamble, and do not restate the question.
