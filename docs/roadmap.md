@@ -38,7 +38,7 @@ Emulators, rules testing, schemas and the read layer, ending with a table route 
 | # | Step | Branch | Content | Status |
 | --- | --- | --- | --- | --- |
 | 1.1 | Firebase setup | `chore/firebase-init` | `firebase init` for Firestore, Hosting and Emulators, a deny-all `firestore.rules`, `npm run emulators`, `.env.example` and `.env.development` | Done |
-| 1.2 | Rules testing | `test/rules-setup` | `@firebase/rules-unit-testing`, `npm run test:rules`, a test proving that everything is denied, a rules job in CI | Not started |
+| 1.2 | Rules testing | `test/rules-setup` | `@firebase/rules-unit-testing`, `npm run test:rules`, a test proving that everything is denied, a rules job in CI | Done |
 | 1.3 | Firebase client | `feat/firebase-client` | `app.ts` with the emulator connection, typed environment variables in `vite-env.d.ts` | Not started |
 | 1.4 | Schemas | `feat/schemas` | Zod schemas for drink, order, event config and staff, with tests for `parseTableId`, `canTransition` and parsing | Not started |
 | 1.5 | Read layer | `feat/read-layer` | `readConverter`, `refs.ts`, `useLiveQuery` and `useLiveDoc`, with tests for the converter | Not started |
@@ -98,6 +98,8 @@ These ideas are outside the current plan. Do not start on them without a decisio
 
 Record decisions that change this roadmap here, newest first, with the step number and a short reason.
 
+- **1.2:** Vitest has a `unit` and a `rules` project in `vite.config.ts`, and the scripts pick one with `--project`, because the rules tests need a Node environment without the jsdom setup and must not run in parallel. `vitest run tests/rules` would only filter the unit files.
+- **1.2:** `firebase` is added in 1.2 instead of 1.3, because the rules tests use `firebase/firestore` and `@firebase/rules-unit-testing` needs it as a peer dependency. 1.3 only adds `app.ts`.
 - **1.1:** The Auth emulator is configured in `firebase.json` in 1.1 instead of 2.1, because `npm run emulators` in AGENTS.md already starts it. 2.1 only connects the client to it.
 - **1.1:** `firebase-tools` is a devDependency, so that `npm run emulators` and the rules job in CI from 1.2 use a pinned version instead of a global install.
 

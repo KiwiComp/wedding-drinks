@@ -10,12 +10,14 @@
     "preview": "vite preview",
     "format": "prettier --write .",
     "typecheck": "tsc -b",
-    "test": "vitest run",
+    "test": "vitest run --project unit",
+    "test:rules": "firebase emulators:exec --only firestore --project demo-wedding-drinks \"vitest run --project rules\"",
     "emulators": "firebase emulators:start --only firestore,auth --project demo-wedding-drinks"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "firebase": "^13.0.0",
     "radix-ui": "^1.8.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -25,6 +27,7 @@
   "devDependencies": {
     "@babel/core": "^7.29.7",
     "@eslint/js": "^10.0.1",
+    "@firebase/rules-unit-testing": "^6.0.0",
     "@rolldown/plugin-babel": "^0.2.4",
     "@tailwindcss/vite": "^4.3.3",
     "@testing-library/dom": "^10.4.2",
