@@ -48,8 +48,8 @@ These scripts are the contract for `package.json`. If one is missing, add it und
 | `npm run lint` | ESLint |
 | `npm run format` | Prettier |
 | `npm run typecheck` | `tsc -b` |
-| `npm test` | Vitest unit and component tests. Excludes `tests/rules` and `tests/e2e`. |
-| `npm run test:rules` | `firebase emulators:exec --only firestore --project demo-wedding-drinks "vitest run tests/rules"` |
+| `npm test` | `vitest run --project unit`: unit and component tests. Excludes `tests/rules` and `tests/e2e`. |
+| `npm run test:rules` | `firebase emulators:exec --only firestore --project demo-wedding-drinks "vitest run --project rules"` |
 | `npm run test:e2e` | Playwright against the emulators |
 | `npm run build` | `tsc -b && vite build` |
 

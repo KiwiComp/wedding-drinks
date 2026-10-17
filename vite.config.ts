@@ -17,9 +17,27 @@ export default defineConfig({
     },
   },
   test: {
-    environment: 'jsdom',
-    // Rules and end-to-end tests need the emulators and run through their own scripts.
-    include: ['src/**/*.test.{ts,tsx}'],
-    setupFiles: ['src/test/setup.ts'],
+    projects: [
+      {
+        extends: true,
+        test: {
+          name: 'unit',
+          environment: 'jsdom',
+          include: ['src/**/*.test.{ts,tsx}'],
+          setupFiles: ['src/test/setup.ts'],
+        },
+      },
+      {
+        extends: true,
+        test: {
+          // Runs inside `firebase emulators:exec` through `npm run test:rules`.
+          name: 'rules',
+          environment: 'node',
+          include: ['tests/rules/**/*.test.ts'],
+          // The files share one emulator and clear it between tests.
+          fileParallelism: false,
+        },
+      },
+    ],
   },
 })
