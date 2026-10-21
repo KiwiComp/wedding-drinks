@@ -74,5 +74,4 @@ I build this project with Claude Code as a pair programmer. The agent follows th
 ## License
  
 [MIT](LICENSE)
- 
-Claude finished the response
+
