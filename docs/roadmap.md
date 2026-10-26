@@ -41,7 +41,7 @@ Emulators, rules testing, schemas and the read layer, ending with a table route 
 | 1.2 | Rules testing | `test/rules-setup` | `@firebase/rules-unit-testing`, `npm run test:rules`, a test proving that everything is denied, a rules job in CI | Done |
 | 1.3 | Firebase client | `feat/firebase-client` | `app.ts` with the emulator connection, typed environment variables in `vite-env.d.ts` | Done |
 | 1.4 | Schemas | `feat/schemas` | Zod schemas for drink, order, event config and staff, with tests for `parseTableId`, `canTransition` and parsing | Done |
-| 1.5 | Read layer | `feat/read-layer` | `readConverter`, `refs.ts`, `useLiveQuery` and `useLiveDoc`, with tests for the converter | Not started |
+| 1.5 | Read layer | `feat/read-layer` | `readConverter`, `refs.ts`, `useLiveQuery` and `useLiveDoc`, with tests for the converter | Done |
 | 1.6 | Seed and menu rules | `feat/seed-and-menu-rules` | `scripts/seed.ts`, `npm run seed`, read rules for `drinks` and `config/event` with rules tests | Not started |
 | 1.7 | Table validation | `feat/table-validation` | `useEventConfig`, `/table/:tableId` validated with `parseTableId`, the 404 view for unknown tables, the `notFound.unknownTable` string | Not started |
 
@@ -97,6 +97,8 @@ These ideas are outside the current plan. Do not start on them without a decisio
 ## Decisions
 
 Record decisions that change this roadmap here, newest first, with the step number and a short reason.
+
+- **1.5:** `useLiveQuery` and `useLiveDoc` get unit tests with a mocked `onSnapshot`, as well as the converter tests, because they hold behaviour that every view relies on: loading, errors, skipped invalid documents and unsubscribing.
 
 - **1.3:** `.gitignore` ignores every `.env*` file except `.env.example` and `.env.development`, and service account key files, so that no secret can be committed.
 - **1.2:** Vitest has a `unit` and a `rules` project in `vite.config.ts`, and the scripts pick one with `--project`, because the rules tests need a Node environment without the jsdom setup and must not run in parallel. `vitest run tests/rules` would only filter the unit files.
