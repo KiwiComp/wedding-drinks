@@ -15,12 +15,7 @@ import {
 } from 'firebase/firestore'
 import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest'
 
-const paths = [
-  'orders/order-1',
-  'drinks/gin-tonic',
-  'staff/bar-1',
-  'config/event',
-]
+const paths = ['orders/order-1', 'staff/bar-1']
 
 let env: RulesTestEnvironment
 

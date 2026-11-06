@@ -1,10 +1,15 @@
 rules_version = '2';
 
+// Anything not opened here is denied. Each later step opens one operation, as specified in docs/data-model.md.
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Deny everything. Each later step opens one operation, as specified in docs/data-model.md.
-    match /{document=**} {
-      allow read, write: if false;
+
+    match /config/{docId} {
+      allow read: if true;
+    }
+
+    match /drinks/{drinkId} {
+      allow read: if true;
     }
   }
 }
