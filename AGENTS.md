@@ -75,7 +75,7 @@ src/
 │  ├─ ordering/            # guest view: menu, cart, my orders
 │  │  ├─ cart.ts           # cartReducer and helpers
 │  │  ├─ api.ts            # createOrder
-│  │  ├─ hooks.ts          # useMenu, useMyOrders
+│  │  ├─ hooks.ts          # useGuestSession, useMenu, useMyOrders
 │  │  └─ components/
 │  ├─ bar/                 # bar view: active orders, status, sold out
 │  │  ├─ api.ts            # updateOrderStatus, setDrinkAvailable
@@ -83,6 +83,7 @@ src/
 │  │  └─ components/
 │  └─ auth/                # AuthProvider, sign-in, protected route
 ├─ shared/
+│  ├─ auth/                # AuthContext.ts with AuthState, useAuth.ts
 │  ├─ firebase/            # app.ts, converters.ts, refs.ts, useLiveQuery.ts, hooks.ts
 │  ├─ i18n/                # en.ts, sv.ts, locale.ts, I18nContext.ts, I18nProvider.tsx, useStrings.ts
 │  ├─ schemas/             # Zod: drink.ts, order.ts, eventConfig.ts, staff.ts

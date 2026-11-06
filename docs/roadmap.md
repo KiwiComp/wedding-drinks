@@ -51,7 +51,7 @@ A guest can browse the menu, send an order and follow its status until the drink
 
 | # | Step | Branch | Content | Status |
 | --- | --- | --- | --- | --- |
-| 2.1 | Anonymous sign-in | `feat/anonymous-sign-in` | `AuthProvider` with `AuthState`, anonymous sign-in on the guest route, the Auth emulator | Not started |
+| 2.1 | Anonymous sign-in | `feat/anonymous-sign-in` | `AuthProvider` with `AuthState`, anonymous sign-in on the guest route, the Auth emulator | Done |
 | 2.2 | Menu | `feat/menu` | `useMenu`, drinks in category tabs with ingredients, the `menu` and `category` strings | Not started |
 | 2.3 | Cart | `feat/cart` | `cartReducer` with tests, add and remove buttons with accessible names, a cart summary with `cart.count` | Not started |
 | 2.4 | Clear cart | `feat/clear-cart` | A clear button with a confirmation dialog | Not started |
@@ -99,6 +99,8 @@ These ideas are outside the current plan. Do not start on them without a decisio
 
 Record decisions that change this roadmap here, newest first, with the step number and a short reason.
 
+- **2.1:** `AuthState` and `useAuth` live in `src/shared/auth/` instead of `features/auth/`, because `features/ordering` needs them and a feature must not import from another feature. `AuthProvider` stays in `features/auth/`.
+- **2.1:** `AuthState` has no `isStaff` until 3.1, because reading `staff/{uid}` and the rule that allows it belong to 3.1.
 - **4.4:** A new step for the bundle size, with Hosting and README moved to 4.5 and 4.6, because the main bundle grew past the 500 kB build warning in 1.7 and should be handled before the app goes live ([issue #19](https://github.com/KiwiComp/wedding-drinks/issues/19)).
 - **1.7:** `NotFoundPage` moves from `src/app/` to `src/shared/ui/` and gets an optional `message`, because `features/ordering` needs the 404 view and a feature must not import from `app/`.
 

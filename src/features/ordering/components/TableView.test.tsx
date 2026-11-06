@@ -11,14 +11,19 @@ const success: QueryState<EventConfig> = {
   data: { name: 'The wedding', tableCount: 8 },
 }
 
+const signedIn: QueryState<string> = { status: 'success', data: 'guest-1' }
+
 function renderView(
   tableId: string | undefined,
   config: QueryState<EventConfig>,
+  session: QueryState<string> = signedIn,
 ) {
   const router = createMemoryRouter([
     {
       path: '/',
-      element: <TableView tableId={tableId} config={config} />,
+      element: (
+        <TableView tableId={tableId} config={config} session={session} />
+      ),
       errorElement: <p>Route error</p>,
     },
   ])
@@ -80,6 +85,30 @@ describe('TableView', () => {
         'Vi hittar inte det bordet. Skanna QR-koden på ditt bord igen.',
       ),
     ).toBeInTheDocument()
+  })
+
+  it('shows a loading message while the guest is being signed in', () => {
+    renderView('3', success, { status: 'loading' })
+
+    expect(screen.getByRole('status')).toHaveTextContent('Loading…')
+    expect(screen.queryByText('Table 3')).not.toBeInTheDocument()
+  })
+
+  it('shows the 404 view for an unknown table while the guest is being signed in', () => {
+    renderView('9', success, { status: 'loading' })
+
+    expect(
+      screen.getByRole('heading', { name: 'Page not found' }),
+    ).toBeInTheDocument()
+  })
+
+  it('hands the error to the route when the sign-in fails', () => {
+    // React logs the thrown error, which is expected here.
+    vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    renderView('3', success, { status: 'error', error: new Error('boom') })
+
+    expect(screen.getByText('Route error')).toBeInTheDocument()
   })
 
   it('hands the error to the route when the config cannot be read', () => {

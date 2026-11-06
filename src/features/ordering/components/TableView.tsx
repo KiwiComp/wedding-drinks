@@ -6,9 +6,10 @@ import { NotFoundPage } from '@/shared/ui/NotFoundPage'
 type TableViewProps = {
   tableId: string | undefined
   config: QueryState<EventConfig>
+  session: QueryState<string>
 }
 
-export function TableView({ tableId, config }: TableViewProps) {
+export function TableView({ tableId, config, session }: TableViewProps) {
   const t = useStrings()
 
   if (config.status === 'loading') {
@@ -21,6 +22,11 @@ export function TableView({ tableId, config }: TableViewProps) {
   if (table === null) {
     return <NotFoundPage message={t.notFound.unknownTable} />
   }
+
+  if (session.status === 'loading') {
+    return <p role="status">{t.common.loading}</p>
+  }
+  if (session.status === 'error') throw session.error
 
   return (
     <>

@@ -6,6 +6,9 @@ import { useEventConfig } from '@/shared/firebase/hooks'
 import { I18nProvider } from '@/shared/i18n/I18nProvider'
 
 vi.mock('@/shared/firebase/hooks', () => ({ useEventConfig: vi.fn() }))
+vi.mock('@/features/ordering/hooks', () => ({
+  useGuestSession: () => ({ status: 'success', data: 'guest-1' }),
+}))
 
 function renderAt(path: string) {
   const router = createMemoryRouter(routes, { initialEntries: [path] })

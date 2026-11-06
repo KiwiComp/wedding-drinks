@@ -128,9 +128,9 @@ export type Staff = z.infer<typeof staffSchema>;
 
 Two models exist only in the client: the sign-in state and the cart.
 
-**`features/auth/authState.ts`**
+**`shared/auth/AuthContext.ts`**
 
-`AuthProvider` listens with `onAuthStateChanged`. When a user is signed in, it reads `staff/{uid}` once, and `isStaff` is `true` if the document exists. The guest view calls `signInAnonymously` when the state is `signedOut`. `/bar` redirects to `/login` when `isStaff` is `false`.
+`AuthProvider` in `features/auth/` listens with `onAuthStateChanged`. When a user is signed in, it reads `staff/{uid}` once, and `isStaff` is `true` if the document exists. The guest view calls `signInAnonymously` when the state is `signedOut`. `/bar` redirects to `/login` when `isStaff` is `false`. The type lives in `shared/` because both `features/auth` and `features/ordering` use it. Step 3.1 adds `isStaff` and the read of `staff/{uid}`.
 
 ```ts
 export type AuthState =
