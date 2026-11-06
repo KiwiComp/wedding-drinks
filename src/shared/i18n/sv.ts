@@ -13,5 +13,7 @@ export const sv: Strings = {
   },
   notFound: {
     title: 'Sidan finns inte',
+    unknownTable:
+      'Vi hittar inte det bordet. Skanna QR-koden på ditt bord igen.',
   },
 }

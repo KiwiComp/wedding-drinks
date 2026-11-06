@@ -1,7 +1,10 @@
-import { useStrings } from '@/shared/i18n/useStrings'
+import { useParams } from 'react-router'
+import { TableView } from '@/features/ordering/components/TableView'
+import { useEventConfig } from '@/shared/firebase/hooks'
 
 export function TablePage() {
-  const t = useStrings()
+  const { tableId } = useParams()
+  const config = useEventConfig()
 
-  return <h1>{t.common.appName}</h1>
+  return <TableView tableId={tableId} config={config} />
 }
