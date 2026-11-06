@@ -11,6 +11,8 @@ export const en = {
   },
   notFound: {
     title: 'Page not found',
+    unknownTable:
+      "We couldn't find that table. Scan the QR code on your table again.",
   },
 }
 

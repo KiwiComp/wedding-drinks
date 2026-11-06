@@ -1,9 +1,9 @@
 import type { RouteObject } from 'react-router'
 import { Layout } from '@/app/Layout'
-import { NotFoundPage } from '@/app/NotFoundPage'
 import { RouteError } from '@/app/RouteError'
 import { LoginPage } from '@/features/auth/components/LoginPage'
 import { TablePage } from '@/features/ordering/components/TablePage'
+import { NotFoundPage } from '@/shared/ui/NotFoundPage'
 
 export const routes: RouteObject[] = [
   {

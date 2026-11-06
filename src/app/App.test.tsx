@@ -1,6 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { App } from '@/app/App'
+
+vi.mock('@/shared/firebase/hooks', () => ({
+  useEventConfig: () => ({ status: 'loading' }),
+}))
 
 describe('App', () => {
   it('renders the main landmark', () => {

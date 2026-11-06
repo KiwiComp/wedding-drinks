@@ -2,7 +2,10 @@ import { render, screen } from '@testing-library/react'
 import { createMemoryRouter, RouterProvider } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { routes } from '@/app/routes'
+import { useEventConfig } from '@/shared/firebase/hooks'
 import { I18nProvider } from '@/shared/i18n/I18nProvider'
+
+vi.mock('@/shared/firebase/hooks', () => ({ useEventConfig: vi.fn() }))
 
 function renderAt(path: string) {
   const router = createMemoryRouter(routes, { initialEntries: [path] })
@@ -20,6 +23,10 @@ describe('routes', () => {
 
   beforeEach(() => {
     vi.spyOn(navigator, 'language', 'get').mockReturnValue('en-GB')
+    vi.mocked(useEventConfig).mockReturnValue({
+      status: 'success',
+      data: { name: 'The wedding', tableCount: 8 },
+    })
   })
 
   it('renders the 404 page for an unknown path', async () => {
@@ -28,6 +35,30 @@ describe('routes', () => {
     expect(
       await screen.findByRole('heading', { name: 'Page not found' }),
     ).toBeInTheDocument()
+  })
+
+  it('renders the 404 view for a table that does not exist', async () => {
+    renderAt('/table/99')
+
+    expect(
+      await screen.findByRole('heading', { name: 'Page not found' }),
+    ).toBeInTheDocument()
+  })
+
+  it('renders the route error when the event config cannot be read', async () => {
+    // React Router logs the thrown error, which is expected here.
+    vi.spyOn(console, 'error').mockImplementation(() => {})
+    vi.mocked(useEventConfig).mockReturnValue({
+      status: 'error',
+      error: new Error('boom'),
+    })
+
+    renderAt('/table/3')
+
+    expect(
+      await screen.findByRole('heading', { name: 'Something went wrong' }),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Reload' })).toBeInTheDocument()
   })
 
   it.each(['/table/3', '/login', '/bar'])(

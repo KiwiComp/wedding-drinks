@@ -1,6 +1,6 @@
 # Roadmap
 
-The work is split into 36 small steps in five phases. Each step is one branch and one pull request, and leaves `main` working.
+The work is split into 37 small steps in five phases. Each step is one branch and one pull request, and leaves `main` working.
 
 ## How to work through the roadmap
 
@@ -43,7 +43,7 @@ Emulators, rules testing, schemas and the read layer, ending with a table route 
 | 1.4 | Schemas | `feat/schemas` | Zod schemas for drink, order, event config and staff, with tests for `parseTableId`, `canTransition` and parsing | Done |
 | 1.5 | Read layer | `feat/read-layer` | `readConverter`, `refs.ts`, `useLiveQuery` and `useLiveDoc`, with tests for the converter | Done |
 | 1.6 | Seed and menu rules | `feat/seed-and-menu-rules` | `scripts/seed.ts`, `npm run seed`, read rules for `drinks` and `config/event` with rules tests | Done |
-| 1.7 | Table validation | `feat/table-validation` | `useEventConfig`, `/table/:tableId` validated with `parseTableId`, the 404 view for unknown tables, the `notFound.unknownTable` string | Not started |
+| 1.7 | Table validation | `feat/table-validation` | `useEventConfig`, `/table/:tableId` validated with `parseTableId`, the 404 view for unknown tables, the `notFound.unknownTable` string | Done |
 
 ## Phase 2: Guest view
 
@@ -83,8 +83,9 @@ The whole flow tested end to end, polished, live on Firebase Hosting and present
 | 4.1 | End-to-end test | `test/e2e-flow` | Playwright against the emulators: a guest orders, the bar serves the order and the guest sees it. A job in CI. | Not started |
 | 4.2 | Archipelago look | `feat/archipelago-look` | The archipelago images and final styling from version 1, checked on a phone and a tablet | Not started |
 | 4.3 | Accessibility pass | `chore/accessibility-pass` | A keyboard and screen reader walkthrough of both views, with fixes for what it finds | Not started |
-| 4.4 | Hosting | `ci/hosting-and-previews` | The demo project on Firebase Hosting, rules and indexes deployed, a preview channel per pull request | Not started |
-| 4.5 | README | `docs/readme` | The story, the live demo and demo login, a GIF of phone and bar side by side, the data model, the rules and the decisions | Not started |
+| 4.4 | Bundle size | `chore/bundle-size` | Measure the main bundle, and split it if that helps guests on mobile, as described in [issue #19](https://github.com/KiwiComp/wedding-drinks/issues/19) | Not started |
+| 4.5 | Hosting | `ci/hosting-and-previews` | The demo project on Firebase Hosting, rules and indexes deployed, a preview channel per pull request | Not started |
+| 4.6 | README | `docs/readme` | The story, the live demo and demo login, a GIF of phone and bar side by side, the data model, the rules and the decisions | Not started |
 
 ## Not planned yet
 
@@ -97,6 +98,9 @@ These ideas are outside the current plan. Do not start on them without a decisio
 ## Decisions
 
 Record decisions that change this roadmap here, newest first, with the step number and a short reason.
+
+- **4.4:** A new step for the bundle size, with Hosting and README moved to 4.5 and 4.6, because the main bundle grew past the 500 kB build warning in 1.7 and should be handled before the app goes live ([issue #19](https://github.com/KiwiComp/wedding-drinks/issues/19)).
+- **1.7:** `NotFoundPage` moves from `src/app/` to `src/shared/ui/` and gets an optional `message`, because `features/ordering` needs the 404 view and a feature must not import from `app/`.
 
 - **1.6:** `scripts/seed.ts` imports the schemas with relative paths and a `.ts` extension instead of `@/`, because `scripts/` is outside `src/`, runs with `tsx` instead of Vite, and `tsconfig.node.json` uses `nodenext`, which requires the extension. `tsconfig.node.json` includes `scripts` so that `npm run typecheck` checks it.
 
